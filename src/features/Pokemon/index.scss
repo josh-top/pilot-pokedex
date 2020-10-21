@@ -1,0 +1,58 @@
+.pokemon-container {
+  display: flex;
+  padding: 0 16px;
+  height: 100%;
+}
+
+.pokemon-card {
+  position: relative;
+  flex: 1;
+  margin-left: 24px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #444950;
+  color: white;
+  transition: all 0.5s;
+  overflow: auto;
+
+  &--white {
+    background: white;
+    color: black;
+  }
+
+  &__column {
+    width: 50%;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+
+  &__ability {
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: solid 1px grey;
+
+    &.active {
+      border: none;
+      background: #2196f3;
+      color: white;
+    }
+  }
+
+  .pokemon-title {
+    margin: 0 8px;
+    text-transform: uppercase;
+  }
+
+  .pokemon-evolution-info {
+    cursor: pointer;
+    font-size: 20px;
+    color: #2196f3;
+  }
+
+  .pokemon-moves {
+    flex-wrap: wrap;
+  }
+}
