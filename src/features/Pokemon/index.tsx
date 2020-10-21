@@ -3,7 +3,7 @@ import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import History from '../History';
 import Sprites from './components/Sprites';
-import { IEvolutionChain, IEvolutionChainLink, IPokemonSpecies } from './pokemonDto';
+import { IEvolutionChainLink, IPokemonSpecies } from './pokemonDto';
 import { fetchEvolutionChainRequested } from './redux/actions';
 import './index.scss';
 

@@ -1,5 +1,32 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Tech Stacks
+
+1. Redux for state management
+2. Redux Saga for middleware
+3. Redux persist
+4. TypeScript
+5. Poke API. Due to the `Fair Use Policy` of the poke API, I had to save the API responses locally using browser local storage
+6. Custom components - `Image Carousel Slider` and `TreeView` on the `pokemon-card` component.
+7. Dark Mode support - These days, more and more webapps and websites support dark mode, so I decided to implement the dark mode.
+
+## Structure
+
+Following feature driven development, added 3 different features - `Pokemon`, `History` and `Settings`
+Each feature has its own redux folder underneath.
+
+1. `Pokemon` is the main feature(page)
+2. `History` saves the search history
+3. `Settings` handles dark/light mode switch
+
+## Future Considerations
+
+1. Mobile support - Right now, only supports Desktop/Tablet views.
+2. Toast notifications - I only added loading spinner, but need to add toast notifications. I can build it as well, but we can use awesome 3rd party npm packages.
+3. Search improvement - Right now, the search feature only works if the entered name/ID is existing. Probably, we need to build a backend server(or database) to save the Poke API responses rather than in the local storage and then support pagination and filtering feature(wildcard filtering by name, type, abilities, etc)
+4. TreeView improvement.
+   To show the evolution details, I built a tree view component with proper margins to show the inheritance. This can be updated or we can use other libraries as well.
+
 ## Available Scripts
 
 In the project directory, you can run:
