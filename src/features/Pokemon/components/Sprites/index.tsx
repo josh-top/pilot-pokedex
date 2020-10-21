@@ -18,6 +18,12 @@ export default class Sprites extends Component<ISpritesProps, ISpritesState> {
     this.changeCarouselIdx = this.changeCarouselIdx.bind(this);
   }
 
+  componentDidUpdate(prevProps: ISpritesProps) {
+    if (this.props.sprites !== prevProps.sprites) {
+      this.setState({ carouselIdx: 0 });
+    }
+  }
+
   changeCarouselIdx(change: number) {
     const { carouselIdx } = this.state;
     const { sprites } = this.props;

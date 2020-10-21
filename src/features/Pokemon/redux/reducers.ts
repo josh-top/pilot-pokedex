@@ -40,7 +40,7 @@ const pokemonReducer = (state = initialState, action: PokemonActions) => {
       return { ...state, loading: false, error: null, pokemon };
     case FETCH_POKEMON_LIST_FAILED:
       const { error } = action.payload;
-      return { ...state, pokemon: null, loading: false, error };
+      return { ...state, pokemon: null, loading: false, loadingSpecies: false, loadingLocations: false, error };
     case FETCH_EVOLUTION_CHAIN_REQUESTED:
       return { ...state, loadingEvolutionChain: true };
     case FETCH_EVOLUTION_CHAIN_SUCCEEDED:

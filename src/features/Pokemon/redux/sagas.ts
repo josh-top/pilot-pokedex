@@ -47,6 +47,8 @@ function* fetchPokemon(action: FetchPokemonRequestedAction) {
           })
         );
       }
+    } else {
+      throw new Error();
     }
   } catch (err) {
     yield put(fetchPokemonFailed({ error: 'Something Went Wrong! Data Not Found' }));

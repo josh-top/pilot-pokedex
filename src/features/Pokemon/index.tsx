@@ -45,7 +45,7 @@ class Pokemon extends Component<PropsFromRedux, IState> {
   evolutionTreeView(evolutionChain: IEvolutionChainLink) {
     const { is_baby, evolves_to, species } = evolutionChain;
     return (
-      <div className="d-flex d-flex--column mt-2 m-1">
+      <div key={species.name} className="d-flex d-flex--column mt-2 m-1">
         <div className="d-flex">{species.name}</div>
         {!is_baby &&
           evolves_to.map((childEvolution) => {
@@ -56,7 +56,7 @@ class Pokemon extends Component<PropsFromRedux, IState> {
   }
 
   detailsFromSpecies(speciesData: IPokemonSpecies) {
-    const { evolutionChain } = this.props;
+    const { evolutionChain, loadingEvolutionChain } = this.props;
     const { color, gender_rate, name, evolves_from_species } = speciesData;
     const { evolutionExpanded } = this.state;
     return (
@@ -91,7 +91,7 @@ class Pokemon extends Component<PropsFromRedux, IState> {
             <i className="fa fa-info-circle pokemon-evolution-info" onClick={this.setEvolutionExpanded} />
           )}
         </div>
-        {evolutionExpanded && evolutionChain && this.evolutionTreeView(evolutionChain.chain)}
+        {evolutionExpanded && !loadingEvolutionChain && evolutionChain && this.evolutionTreeView(evolutionChain.chain)}
 
         {evolves_from_species?.name && (
           <div className="pokemon-card__row mt-3">
@@ -175,7 +175,7 @@ class Pokemon extends Component<PropsFromRedux, IState> {
           </div>
         </div>
 
-        <div className="d-flex d-flex--column mt-3">
+        <div className="d-flex d-flex--column mt-3 mb-3">
           <strong>Varieties:</strong>
           <div className="pokemon-types d-flex mt-1">
             {(speciesData?.varieties || []).map((variety) => (
@@ -203,6 +203,7 @@ const mapStateToProps = (state: RootState) => ({
   darkMode: state.settings.darkMode,
   pokemon: state.pokemon.pokemon,
   evolutionChain: state.pokemon.evolutionChain,
+  loadingEvolutionChain: state.pokemon.loadingEvolutionChain,
 });
 
 const mapDispatchToProps = {
